@@ -2,42 +2,42 @@
   {
     "id": "e-101",
     "content": "buying clothes",
-    "cratedAt": 1672509261189,
+    "createdAt": 1672509261189,
     "category": "shopping",
     "amount": 200
   },
   {
     "id": "e-102",
     "content": "driving tel Aviv",
-    "cratedAt": 1672509278277,
+    "createdAt": 1672509278277,
     "category": "gas",
     "amount": 105
   },
   {
     "id": "e-103",
     "content": "Highway 90 Hamburger",
-    "cratedAt": 1672509290123,
+    "createdAt": 1672509290123,
     "category": "food",
     "amount": 89
   },
   {
     "id": "e-104",
     "content": "buying shoes",
-    "cratedAt": 1672509261189,
+    "createdAt": 1672509261189,
     "category": "shopping",
     "amount": 300
   },
   {
     "id": "e-105",
     "content": "begin pizza",
-    "cratedAt": 1672509278277,
+    "createdAt": 1672509278277,
     "category": "food",
     "amount": 67
   },
   {
     "id": "e-106",
     "content": "Driving Karmiel",
-    "cratedAt": 1672509290123,
+    "createdAt": 1672509290123,
     "category": "gas",
     "amount": 100
   }

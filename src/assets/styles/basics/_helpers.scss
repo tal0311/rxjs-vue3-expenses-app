@@ -50,6 +50,19 @@
   display: grid;
 }
 
+.icon {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.table {
+  display: table;
+  .cell {
+    display: table-cell;
+  }
+}
+
 .clean-list {
   list-style: none;
 }
