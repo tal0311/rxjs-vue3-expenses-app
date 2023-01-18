@@ -1,16 +1,15 @@
 <template>
  <section v-if="items" class="ex-app">
   <h1>app</h1>
-  <ul class="clean-list">
-   <li v-for="item in items" :key="item.id">
-    {{ item.content }}
-   </li>
-  </ul>
+  <section class="ex-list table">
+   <ex-preview v-for="item in items" :key="item.id" :item="item" />
+  </section>
   <RouterView />
  </section>
 </template>
 
 <script>
+import exPreview from '../components/ex-preview.vue'
 import { itemService } from './../services/item.service.js'
 export default {
  name: 'ex-app',
@@ -28,6 +27,9 @@ export default {
  },
  methods: {
 
+ },
+ components: {
+  exPreview
  },
  unmounted() {
   this.itemSub.unsubscribe()
