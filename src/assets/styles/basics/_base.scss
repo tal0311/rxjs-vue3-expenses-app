@@ -10,13 +10,11 @@
 }
 
 html {
-  font-family: 'poppins-regular', sans-serif;
-  line-height: 1.6;
-  color: $clr2;
+  font-family: "poppins-regular", sans-serif;
 }
 
 body {
-  font-family: 'poppins-regular', sans-serif;
+  font-family: "poppins-regular", sans-serif;
   height: 100vh;
   font-size: rem(18px);
   margin: 0;
@@ -29,18 +27,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: caveat;
-
   line-height: 1;
 }
 
-// img {
-//     width: 100%;
-// }
-
-p {
-  margin: 0 0 1em;
-  max-width: 40ch;
+img {
+  width: 100%;
+  object-fit: cover;
 }
 
 a {
