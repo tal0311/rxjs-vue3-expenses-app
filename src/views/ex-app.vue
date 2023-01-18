@@ -16,18 +16,22 @@ export default {
  name: 'ex-app',
  created() {
   itemService.query()
-  itemService.ex$.subscribe((items) => {
+  this.itemSub = itemService.ex$.subscribe((items) => {
    this.items = items
   })
  },
  data() {
   return {
+   itemSub: null,
    items: null
   }
  },
  methods: {
 
- }
+ },
+ unmounted() {
+  this.itemSub.unsubscribe()
+ },
 }
 </script>
 
