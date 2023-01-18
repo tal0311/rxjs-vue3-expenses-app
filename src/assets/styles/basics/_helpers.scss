@@ -46,11 +46,15 @@
   }
 }
 
-// Media helpers
-
 .grid {
   display: grid;
 }
+
+.clean-list {
+  list-style: none;
+}
+// Media helpers
+
 .square-ratio {
   @include aspect-ratio(1, 1);
 }

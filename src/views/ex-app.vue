@@ -1,7 +1,7 @@
 <template>
  <section v-if="items" class="ex-app">
   <h1>app</h1>
-  <ul>
+  <ul class="clean-list">
    <li v-for="item in items" :key="item.id">
     {{ item.content }}
    </li>

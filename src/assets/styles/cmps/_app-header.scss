@@ -1,4 +1,9 @@
 .app-header {
-  background: red;
-  height: 10vh
+  background: crimson;
+  height: 10vh;
+
+  .header-container {
+    align-items: center;
+    justify-content: space-between;
+  }
 }
