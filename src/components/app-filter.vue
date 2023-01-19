@@ -1,5 +1,6 @@
 <template>
- <section class="app-filter full">
+ <section class="app-filter full flex">
+  <button class="view-btn icon" v-icon="icon" @click="$emit('toggle-view')"></button>
   <form @submit.prevent="$emit('filter', filter)">
    <input type="search" v-model="filter.txt">
    <select v-if="categories" name="category" v-model="filter.category">
@@ -16,8 +17,9 @@
 <script>
 export default {
  name: 'app-filter',
- emits: ['filter'],
+ emits: ['filter', 'toggle-view'],
  props: {
+  icon: String,
   categories: {
    type: Array,
   },

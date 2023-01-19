@@ -1,6 +1,6 @@
 .ex-list {
   width: 100%;
-  &.card {
+  &.grid {
     margin: 10px auto;
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
@@ -20,6 +20,9 @@
         max-width: 2em;
       }
     }
+    .table-headers {
+      display: none;
+    }
   }
 
   .ex-preview {
@@ -30,5 +33,12 @@
     &:first-child {
       cursor: pointer;
     }
+  }
+  .table-headers {
+    display: table-row;
+    justify-content: space-between;
+    font-weight: bolder;
+    font-size: 1.2em;
+    margin-bottom: 1em;
   }
 }

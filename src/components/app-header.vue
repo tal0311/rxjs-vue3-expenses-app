@@ -3,6 +3,7 @@
     <section class="header-container flex ">
       <h1 class="logo">Expense Tracker rxjs</h1>
       <nav>
+
         <RouterLink v-for="(route, idx) in routes" :key="idx" :to="route.path" v-icon="route.icon">
           {{ route.value }}
         </RouterLink>

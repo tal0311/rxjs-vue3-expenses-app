@@ -1,0 +1,8 @@
+.app-filter {
+ .view-btn {
+  margin-inline-end: 1em;
+ }
+ & > * :not(:last-child) {
+  margin-inline-end: 1em;
+ }
+}
