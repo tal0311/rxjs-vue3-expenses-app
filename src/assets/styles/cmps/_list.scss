@@ -43,5 +43,8 @@
     font-weight: bolder;
     font-size: 1.2em;
     margin-bottom: 1em;
+    .cell:last-child {
+      text-align: end;
+    }
   }
 }
