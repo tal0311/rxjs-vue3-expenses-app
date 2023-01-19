@@ -14,8 +14,6 @@ const svgs = {
 }
 
 function getSvg(iconname) {
-  console.log("row from svg")
-
   return svgs[iconname]
 }
 export default getSvg

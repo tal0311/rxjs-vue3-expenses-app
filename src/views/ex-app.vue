@@ -1,6 +1,6 @@
 <template>
  <section v-if="items" class="ex-app">
-  <h1>app</h1>
+  <app-filter @filter="setFilter" :categories="categories" />
   <section class="ex-list table">
    <ex-preview v-for="item in items" :key="item.id" :item="item" />
   </section>
@@ -9,30 +9,53 @@
 </template>
 
 <script>
+import appFilter from '../components/app-filter.vue'
 import exPreview from '../components/ex-preview.vue'
-import { itemService } from './../services/item.service.js'
+import { itemService } from './../services/item.service'
+import { userService } from './../services/user.service'
+
+import { map } from 'rxjs'
 export default {
  name: 'ex-app',
  created() {
   itemService.query()
-  this.itemSub = itemService.ex$.subscribe((items) => {
-   this.items = items
-  })
+  userService.getSettings()
+  this.filterSub =
+   itemService.filter$.subscribe(this.setQueryParams)
+  this.userSetSub = userService.userSettings$.pipe(
+   map((userSettings) => userSettings.categories)
+  ).subscribe(this.loadCategories)
+  this.itemSub = itemService.ex$.subscribe(this.loadItems)
  },
  data() {
   return {
    itemSub: null,
-   items: null
+   items: null,
+   categories: null
   }
  },
  methods: {
-
+  setFilter(filter) {
+   itemService.setFilter({ ...filter })
+  },
+  setQueryParams(params) {
+   this.$router.push({ query: params })
+  },
+  loadCategories(categories) {
+   this.categories = categories
+  },
+  loadItems(items) {
+   this.items = items
+  }
  },
  components: {
-  exPreview
+  exPreview,
+  appFilter
  },
  unmounted() {
   this.itemSub.unsubscribe()
+  this.filterSub.unsubscribe()
+  this.userSetSub.unsubscribe()
  },
 }
 </script>

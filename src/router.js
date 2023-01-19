@@ -2,14 +2,23 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import home from './views/home.vue'
 import exApp from './views/ex-app.vue'
 import userSettings from './views/user-settings.vue'
+import { itemService } from './services/item.service'
+
+// const filterGuard = (to) => {
+//  return { path: to.path, query: {}, hash: to.hash }
+// }
+
 const routes = [
  { path: '/', component: home },
  {
   path: '/app',
   component: exApp,
   name: 'app',
+  // beforeEnter: [filterGuard],
   children: [
-   { path: 'settings', component: userSettings }
+   {
+    path: 'settings', component: userSettings
+   }
   ]
  },
 ]

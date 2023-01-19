@@ -1,7 +1,12 @@
-import { BehaviorSubject, of, getValue } from "rxjs"
+
+import { BehaviorSubject } from 'rxjs'
+
 const userSettings = {
   categories: ["food", "gas", "shopping"],
-  username: "Tal"
+  username: "Tal",
+  lang: 'he',
+  favColor: 'steelblue',
+  dob: '30-11-1982'
 }
 
 const _userSettings$ = new BehaviorSubject({})
