@@ -1,13 +1,10 @@
 <template>
-  <appHeader></appHeader>
-  <main class="main-container full">
-    <RouterView></RouterView>
-  </main>
-  <footer class="main-container full">
-    <section>
-      <h1>footer</h1>
-    </section>
-  </footer>
+  <section class="full">
+    <appHeader></appHeader>
+    <main class="main-container full">
+      <RouterView></RouterView>
+    </main>
+  </section>
 </template>
 
 <script>

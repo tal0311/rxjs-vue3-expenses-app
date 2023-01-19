@@ -7,18 +7,18 @@ const gView = {
 }
 const _ex$ = new BehaviorSubject([])
 const ex$ = _ex$.asObservable()
-const _filter$ = new BehaviorSubject({})
+const _filter$ = new BehaviorSubject({ txt: '', category: '' })
 const filter$ = _filter$.asObservable()
 const _view$ = new BehaviorSubject(gView)
 const view$ = _view$.asObservable()
 
 function query() {
   const filter = _filter$.getValue()
-  console.log(filter)
-  let todos = exDB
-  todos = exDB.filter(_filterItems)
+  console.log('filter:', filter)
+  let ex = exDB
+  ex = exDB.filter(_filterItems)
 
-  _ex$.next(todos)
+  _ex$.next(ex)
 }
 
 function _filterItems(expanse) {
@@ -55,8 +55,6 @@ function getById(todoId) {
 }
 
 function setFilter(filter) {
-  console.log("setfilter:", filter)
-  filter.category = filter.category === "null" ? null : filter.category
   _filter$.next(filter)
   query()
 }
