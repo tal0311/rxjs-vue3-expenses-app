@@ -1,7 +1,8 @@
 <template>
  <section v-if="items" class="ex-app">
-  <app-filter @filter="setFilter" :categories="categories" />
-  <section class="ex-list table">
+  <app-filter :icon="setIcon" @filter="setFilter" :categories="categories" @toggle-view="setView" />
+  <section :class="['ex-list', view]">
+   <table-headers />
    <ex-preview v-for="item in items" :key="item.id" :item="item" />
   </section>
   <RouterView />
@@ -9,6 +10,7 @@
 </template>
 
 <script>
+import tableHeaders from '../components/table-headers.vue'
 import appFilter from '../components/app-filter.vue'
 import exPreview from '../components/ex-preview.vue'
 import { itemService } from './../services/item.service'
@@ -31,7 +33,13 @@ export default {
   return {
    itemSub: null,
    items: null,
-   categories: null
+   categories: null,
+   view: 'table'
+  }
+ },
+ computed: {
+  setIcon() {
+   return this.view === 'table' ? 'grid' : 'row'
   }
  },
  methods: {
@@ -46,6 +54,9 @@ export default {
   },
   loadItems(items) {
    this.items = items
+  },
+  setView() {
+   this.view = this.view === 'table' ? 'grid' : 'table'
   }
 
  },
@@ -56,7 +67,8 @@ export default {
  },
  components: {
   exPreview,
-  appFilter
+  appFilter,
+  tableHeaders
  },
  unmounted() {
   this.itemSub.unsubscribe()
