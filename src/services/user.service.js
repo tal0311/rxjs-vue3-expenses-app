@@ -1,5 +1,5 @@
 
-import { BehaviorSubject } from 'rxjs'
+import { BehaviorSubject, map, of } from 'rxjs'
 
 const userSettings = {
   categories: ["food", "gas", "shopping",],
@@ -12,10 +12,22 @@ const userSettings = {
 const _userSettings$ = new BehaviorSubject({})
 const userSettings$ = _userSettings$.asObservable()
 
+
 function getSettings() {
   _userSettings$.next(userSettings)
+
+}
+
+function getByKey(key) {
+  let userKey
+  _userSettings$.pipe(
+    tap((set) => userKey = set[key])
+  )
+  return of(userKey)
+
 }
 export const userService = {
   userSettings$,
-  getSettings
+  getSettings,
+  getByKey
 }

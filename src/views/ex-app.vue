@@ -47,6 +47,12 @@ export default {
   loadItems(items) {
    this.items = items
   }
+
+ },
+ watch: {
+  $route(to) {
+   itemService.setFilter({ ...to.query })
+  }
  },
  components: {
   exPreview,
