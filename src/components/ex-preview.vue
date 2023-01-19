@@ -9,8 +9,7 @@
   <div class="cell">
    {{ getDate }}
   </div>
-  <div class="cell">
-   <button class="icon" v-icon="'times'"></button>
+  <div class="cell" v-icon="'times'">
   </div>
  </article>
 </template>

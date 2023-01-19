@@ -30,8 +30,11 @@
     line-height: 2em;
     display: table-row;
     justify-content: space-between;
-    &:first-child {
+    .cell:first-child {
       cursor: pointer;
+    }
+    .cell:last-child {
+      text-align: end;
     }
   }
   .table-headers {
