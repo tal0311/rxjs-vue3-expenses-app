@@ -2,7 +2,7 @@
 import { BehaviorSubject } from 'rxjs'
 
 const userSettings = {
-  categories: ["food", "gas", "shopping"],
+  categories: ["food", "gas", "shopping",],
   username: "Tal",
   lang: 'he',
   favColor: 'steelblue',
