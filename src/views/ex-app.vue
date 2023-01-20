@@ -39,6 +39,7 @@ export default {
  },
  computed: {
   setIcon() {
+   console.log(this.view === 'table' ? 'grid' : 'row')
    return this.view === 'table' ? 'grid' : 'row'
   }
  },

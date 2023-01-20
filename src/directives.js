@@ -14,6 +14,10 @@ const icon = {
     const icon = getSvg(binding.value)
     el.innerHTML = icon
   },
+  updated: (el, binding) => {
+    const icon = getSvg(binding.value)
+    el.innerHTML = icon
+  }
 }
 
 export { edit, icon }
