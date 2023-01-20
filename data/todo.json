@@ -1,14 +1,14 @@
 [
   {
     "id": "e-101",
-    "content": "buying clothes",
+    "content": "Buying clothes",
     "createdAt": 1672509261189,
     "category": "shopping",
     "amount": 200
   },
   {
     "id": "e-102",
-    "content": "driving tel Aviv",
+    "content": "Driving tel Aviv",
     "createdAt": 1672509278277,
     "category": "gas",
     "amount": 105
@@ -22,14 +22,14 @@
   },
   {
     "id": "e-104",
-    "content": "buying shoes",
+    "content": "Buying shoes",
     "createdAt": 1672509261189,
     "category": "shopping",
     "amount": 300
   },
   {
     "id": "e-105",
-    "content": "begin pizza",
+    "content": "Begin pizza",
     "createdAt": 1672509278277,
     "category": "food",
     "amount": 67

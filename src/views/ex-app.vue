@@ -2,7 +2,7 @@
  <section v-if="items" class="ex-app">
   <app-filter :icon="setIcon" @filter="setFilter" :categories="categories" @toggle-view="setView" />
   <section :class="['ex-list', view]">
-   <table-headers />
+   <table-headers @sort="setSort" />
    <ex-preview v-for="item in items" :key="item.id" :item="item" />
   </section>
   <RouterView />
@@ -58,7 +58,11 @@ export default {
   },
   setView() {
    this.view = this.view === 'table' ? 'grid' : 'table'
+  },
+  setSort(key) {
+   itemService.setSort(key)
   }
+
 
  },
  watch: {
