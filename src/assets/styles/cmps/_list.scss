@@ -46,5 +46,14 @@
     .cell:last-child {
       text-align: end;
     }
+    .cell:not(.cell:last-child) {
+      position: relative;
+      &:hover::after {
+        content: "▼";
+        color: #333;
+        position: absolute;
+      }
+    }
   }
 }
+// '▲'

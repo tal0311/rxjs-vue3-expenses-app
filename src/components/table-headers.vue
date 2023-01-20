@@ -1,13 +1,13 @@
 <template>
  <div class="table-headers row">
-  <div class="table-header cell">
+  <div @click="onSort('content')" class="table-header cell">
    <span>Name</span>
   </div>
 
-  <div class="table-header cell">
+  <div @click="onSort('amount')" class="table-header cell">
    <span>Amount</span>
   </div>
-  <div class="table-header cell">
+  <div @click="onSort('createdAt')" class="table-header cell">
    <span>Date</span>
   </div>
   <div class="table-header cell">
@@ -18,7 +18,15 @@
 
 <script>
 export default {
- name: 'table-headers'
+ name: 'table-headers',
+ emits: ['sort'],
+ methods: {
+  onSort(key) {
+   console.log('key:', key)
+
+   this.$emit('sort', key)
+  }
+ }
 }
 </script>
 

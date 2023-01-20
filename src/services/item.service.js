@@ -5,6 +5,10 @@ const gView = {
   with: window.innerWidth,
   view: "table"
 }
+var gSortBy = {
+  key: 'content',
+  dir: -1
+}
 const _ex$ = new BehaviorSubject([])
 const ex$ = _ex$.asObservable()
 const _filter$ = new BehaviorSubject({ txt: '', category: '' })
@@ -17,7 +21,7 @@ function query() {
   console.log('filter:', filter)
   let ex = exDB
   ex = exDB.filter(_filterItems)
-
+  ex = _sortEx(ex, gSortBy)
   _ex$.next(ex)
 }
 
@@ -28,6 +32,15 @@ function _filterItems(expanse) {
   return filter.category
     ? regex.test(expanse.content) && expanse.category === filter.category
     : regex.test(expanse.content)
+}
+
+function _sortEx(ex, sortBy) {
+  if (!sortBy.key) return ex
+  return ex.sort((a, b) => {
+    return typeof a[sortBy.key] === 'string'
+      ? a[sortBy.key].localeCompare(b[sortBy.key]) * sortBy.dir
+      : a[sortBy.key] - b[sortBy.key] * sortBy.dir
+  })
 }
 
 function addEx({ content }) {
@@ -54,6 +67,11 @@ function getById(todoId) {
   return exDB.find((todo) => todo.id === todoId)
 }
 
+function setSort(key) {
+  gSortBy.key = key
+  gSortBy.dir = gSortBy.dir === -1 ? 1 : -1
+  query()
+}
 function setFilter(filter) {
   _filter$.next(filter)
   query()
@@ -86,5 +104,6 @@ export const itemService = {
   addEx,
   removeEx,
   updateEx,
-  setFilter
+  setFilter,
+  setSort
 }
