@@ -1,4 +1,5 @@
 .ex-list {
+  border-collapse: collapse;
   width: 100%;
   &.grid {
     margin: 10px auto;
@@ -27,18 +28,20 @@
 
   .ex-preview {
     transition: 0.3s ease-in-out;
+    border-bottom: 1px solid #dedede;
     margin-bottom: 0.2em;
     line-height: 2em;
     display: table-row;
 
     .cell:first-child {
       cursor: pointer;
+      padding-inline-start: 0.2em;
     }
     .cell:last-child {
       text-align: end;
     }
     &:hover {
-      border-bottom: 1px inset #333;
+      // border-bottom: 1px inset rgb(222, 222, 222);
     }
   }
   .table-headers {
