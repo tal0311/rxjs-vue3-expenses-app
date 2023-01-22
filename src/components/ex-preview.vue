@@ -1,5 +1,5 @@
 <template>
- <article :class="['ex-preview', item.category]">
+ <article :class="['ex-preview', item.category]" :style="borderStyle">
   <div class="cell">
    <p>{{ item.content }}</p>
   </div>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { setCatColor } from '../services/category.service';
 export default {
  name: 'ex-preview',
  props: {
@@ -24,6 +25,14 @@ export default {
  computed: {
   getDate() {
    return new Date(this.item.createdAt).toLocaleDateString()
+  },
+  borderStyle() {
+
+
+   return {
+    'border-Left': `5px solid ${setCatColor(this.item.category)}`
+   }
+
   }
  }
 }
