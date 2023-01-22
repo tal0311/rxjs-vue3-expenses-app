@@ -1,7 +1,9 @@
 .app-header {
   background: crimson;
   height: 10vh;
-
+  .logo {
+    font-size: 2rem;
+  }
   .header-container {
     align-items: center;
     justify-content: space-between;
