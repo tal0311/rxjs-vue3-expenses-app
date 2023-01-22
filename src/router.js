@@ -9,7 +9,7 @@ import { itemService } from './services/item.service'
 // }
 
 const routes = [
- { path: '/', component: home },
+ { path: '/', component: home, name: 'home' },
  {
   path: '/app',
   component: exApp,
@@ -17,7 +17,7 @@ const routes = [
   // beforeEnter: [filterGuard],
   children: [
    {
-    path: 'settings', component: userSettings
+    path: 'settings', component: userSettings, name: 'settings'
    }
   ]
  },

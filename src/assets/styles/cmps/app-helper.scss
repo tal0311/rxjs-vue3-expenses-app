@@ -1,0 +1,22 @@
+.app-helper {
+ position: relative;
+
+ &.notify {
+  &::after {
+   content: ".";
+   position: absolute;
+   top: -85%;
+   left: 0;
+   color: red;
+   font-size: 72px;
+  }
+ }
+ .content {
+  position: absolute;
+  max-width: 250px;
+  box-shadow: $bs;
+  padding: 0.5em;
+  transform: translateY(calc(-100% - 50px));
+  background: #fff;
+ }
+}
