@@ -27,14 +27,18 @@
 
   .ex-preview {
     transition: 0.3s ease-in-out;
+    margin-bottom: 0.2em;
     line-height: 2em;
     display: table-row;
-    justify-content: space-between;
+
     .cell:first-child {
       cursor: pointer;
     }
     .cell:last-child {
       text-align: end;
+    }
+    &:hover {
+      border-bottom: 1px inset #333;
     }
   }
   .table-headers {
