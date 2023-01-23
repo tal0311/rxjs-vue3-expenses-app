@@ -1,10 +1,4 @@
-
-
-
-
 export function getHelperContent(to) {
- console.log('to.name:', to.name)
-
  return content[to.name] || content['default']
 
 }

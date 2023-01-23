@@ -39,7 +39,6 @@ export default {
  },
  computed: {
   setIcon() {
-   console.log(this.view === 'table' ? 'grid' : 'row')
    return this.view === 'table' ? 'grid' : 'row'
   }
  },
@@ -54,7 +53,7 @@ export default {
    this.categories = categories
   },
   loadItems(items) {
-   console.log('items', items);
+
    this.items = { ...items }
   },
   setView() {

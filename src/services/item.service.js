@@ -17,8 +17,6 @@ const _view$ = new BehaviorSubject(gView)
 const view$ = _view$.asObservable()
 
 function query() {
-  const filter = _filter$.getValue()
-  console.log('filter:', filter)
   let ex = exDB
   ex = exDB.filter(_filterItems)
   ex = _sortEx(ex, gSortBy)
@@ -28,7 +26,6 @@ function query() {
 function _filterItems(expanse) {
   const filter = _filter$.getValue()
   const regex = new RegExp(filter.txt)
-
   return filter.category
     ? regex.test(expanse.content) && expanse.category === filter.category
     : regex.test(expanse.content)
@@ -50,7 +47,6 @@ function addEx({ content }) {
 }
 
 function removeEx(exId) {
-  console.log('exId:', exId)
   const exs = _ex$.getValue()
   const idx = exs.findIndex((ex) => ex.id === exId)
   exs.splice(idx, 1)
