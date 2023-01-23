@@ -4,8 +4,47 @@
   .logo {
     font-size: 2rem;
   }
+
   .header-container {
     align-items: center;
     justify-content: space-between;
+    nav {
+      a.router-link-exact-active {
+        opacity: 0.5;
+      }
+      position: fixed;
+      right: 0;
+      bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      & > a {
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        box-shadow: $bs;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+        background: $clr6;
+      }
+    }
+  }
+  @media screen and (min-width: 500px) {
+    .header-container {
+      nav {
+        position: static;
+        display: flex;
+        flex-direction: row;
+
+        a:first-child {
+          order: 2;
+        }
+        & > a {
+          margin: 0;
+          padding: 0;
+          background: none;
+          border-radius: 0;
+          box-shadow: none;
+        }
+      }
+    }
   }
 }

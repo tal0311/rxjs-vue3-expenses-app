@@ -24,10 +24,6 @@ export default {
    type: Array,
   },
  },
- created() {
-  console.log('this.categories:', this.categories)
- },
-
  data() {
   return {
    filter: {

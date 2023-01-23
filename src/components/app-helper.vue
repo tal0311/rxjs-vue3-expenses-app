@@ -31,7 +31,6 @@ export default {
   },
   watch: {
     $route: function (to, from) {
-      console.log('to :', to)
       const { content, header } = getHelperContent(to)
       this.content = content;
       this.header = header;
