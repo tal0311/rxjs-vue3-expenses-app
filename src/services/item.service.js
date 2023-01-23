@@ -49,10 +49,12 @@ function addEx({ content }) {
   _ex$.next(exDB)
 }
 
-function removeEx(todoId) {
-  const idx = exDB.findIndex((todo) => todo.id === todoId)
-  exDB.splice(idx, 1)
-  _ex$.next(exDB)
+function removeEx(exId) {
+  console.log('exId:', exId)
+  const exs = _ex$.getValue()
+  const idx = exs.findIndex((ex) => ex.id === exId)
+  exs.splice(idx, 1)
+  _ex$.next(exs)
 }
 
 function updateEx(todoId, key, value) {
@@ -66,6 +68,8 @@ function updateEx(todoId, key, value) {
 function getById(todoId) {
   return exDB.find((todo) => todo.id === todoId)
 }
+
+
 
 function setSort(key) {
   gSortBy.key = key

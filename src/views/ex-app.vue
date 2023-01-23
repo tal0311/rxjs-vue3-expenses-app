@@ -3,7 +3,7 @@
   <app-filter :icon="setIcon" @filter="setFilter" :categories="categories" @toggle-view="setView" />
   <section :class="['ex-list', view]">
    <table-headers @sort="setSort" />
-   <ex-preview v-for="item in items" :key="item.id" :item="item" />
+   <ex-preview v-for="item in items" :key="item.id" :item="item" @remove="removeEx" />
   </section>
   <RouterView />
  </section>
@@ -54,13 +54,17 @@ export default {
    this.categories = categories
   },
   loadItems(items) {
-   this.items = items
+   console.log('items', items);
+   this.items = { ...items }
   },
   setView() {
    this.view = this.view === 'table' ? 'grid' : 'table'
   },
   setSort(key) {
    itemService.setSort(key)
+  },
+  removeEx(exId) {
+   itemService.removeEx(exId)
   }
 
 

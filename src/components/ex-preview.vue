@@ -9,7 +9,7 @@
   <div class="cell">
    {{ getDate }}
   </div>
-  <div class="cell" v-icon="'times'">
+  <div class="cell" v-icon="'times'" @click="$emit('remove', item.id)">
   </div>
  </article>
 </template>
@@ -18,10 +18,13 @@
 import { setCatColor } from '../services/category.service';
 export default {
  name: 'ex-preview',
+ emits: ['remove'],
  props: {
   item: Object
  },
+ methods: {
 
+ },
  computed: {
   getDate() {
    return new Date(this.item.createdAt).toLocaleDateString()
