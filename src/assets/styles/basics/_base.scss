@@ -5,8 +5,8 @@
 }
 
 ::selection {
-  background-color: $clr1;
-  color: $clr6;
+  // background-color: $clr1;
+  // color: $clr6;
 }
 
 html {
@@ -46,12 +46,12 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-  background: $clr4;
+  // background: $clr4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $clr2;
-  outline: 1px solid $clr2;
+  // background-color: $clr2;
+  // outline: 1px solid $clr2;
 }
 button {
   cursor: pointer;
