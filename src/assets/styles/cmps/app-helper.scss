@@ -1,19 +1,21 @@
 .app-helper {
- position: relative;
+ position: fixed;
+ bottom: 2rem;
+ left: 2rem;
 
  &.notify {
   &::after {
    content: ".";
    position: absolute;
-   top: -85%;
+   top: -140%;
    left: 0;
    color: red;
-   font-size: 72px;
+   font-size: 80px;
   }
  }
  .content {
   position: absolute;
-  max-width: 250px;
+  width: 300px;
   box-shadow: $bs;
   padding: 0.5em;
   transform: translateY(calc(-100% - 50px));
