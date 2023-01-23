@@ -2,6 +2,8 @@
   border-collapse: collapse;
   width: 100%;
   &.grid {
+    position: relative;
+    z-index: -1;
     margin: 10px auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
