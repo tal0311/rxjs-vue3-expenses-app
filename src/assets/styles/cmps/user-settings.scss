@@ -62,4 +62,16 @@
    @include app-btn(0.5em, 1em);
   }
  }
+ .select {
+  border: none;
+  border-bottom: 1px solid crimson;
+  padding: 0.5em 0;
+  max-width: 50%;
+  font-size: 1em;
+
+  option {
+   border: none;
+   padding: 1.2em 0;
+  }
+ }
 }
