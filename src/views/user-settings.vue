@@ -18,7 +18,7 @@
    <label for="language">
     language
    </label>
-   <select name="language" v-model="user.lang">
+   <select class="select" name="language" v-model="user.lang">
     <option value="en">English</option>
     <option value="he">עברית</option>
    </select>
