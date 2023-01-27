@@ -21,10 +21,8 @@ function getSettings() {
 }
 
 function getByKey(key) {
-  let userKey
-  _userSettings$.getValue()
+  let userKey = _userSettings$.getValue()
   return userKey[key]
-
 }
 
 function updateUser(userSettings) {
