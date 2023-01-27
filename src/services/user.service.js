@@ -22,10 +22,8 @@ function getSettings() {
 
 function getByKey(key) {
   let userKey
-  _userSettings$.pipe(
-    tap((set) => userKey = set[key])
-  )
-  return of(userKey)
+  _userSettings$.getValue()
+  return userKey[key]
 
 }
 

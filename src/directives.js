@@ -1,4 +1,6 @@
 import getSvg from './services/svg.service'
+import { getTrans } from './services/i18.service'
+import { userService } from './services/user.service'
 
 const edit = {
   mounted: (el, binding) => {
@@ -18,6 +20,14 @@ const icon = {
     const icon = getSvg(binding.value)
     el.innerHTML = icon
   }
+}
+const trans = {
+  mounted: (el, binding) => {
+    const userLang = userService.getByKey()
+    const icon = getSvg(binding.value)
+    el.innerHTML = icon
+  },
+
 }
 
 export { edit, icon }
