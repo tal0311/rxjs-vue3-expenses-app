@@ -10,6 +10,10 @@ const trans = {
   en: 'Amount',
   he: 'סכום'
  },
+ 'date': {
+  en: 'Date',
+  he: 'תאריך'
+ },
  'action': {
   en: 'Actions',
   he: 'פעולות'

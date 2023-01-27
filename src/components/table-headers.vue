@@ -5,13 +5,13 @@
   </div>
 
   <div @click="onSort('amount')" class="table-header cell">
-   <span>Amount</span>
+   <span v-trans="'amount'">Amount</span>
   </div>
   <div @click="onSort('createdAt')" class="table-header cell">
-   <span>Date</span>
+   <span v-trans="'date'">Date</span>
   </div>
   <div class="table-header cell">
-   <span>Actions</span>
+   <span v-trans="'action'">Actions</span>
   </div>
  </div>
 </template>
@@ -20,6 +20,14 @@
 export default {
  name: 'table-headers',
  emits: ['sort'],
+ props: {
+  lang: String
+ },
+ data() {
+  return {
+   userLang: this.lang
+  }
+ },
  methods: {
   onSort(key) {
    console.log('key:', key)

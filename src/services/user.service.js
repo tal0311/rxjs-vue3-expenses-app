@@ -4,7 +4,7 @@ import { BehaviorSubject, map, of } from 'rxjs'
 const userSettings = {
   categories: ["food", "gas", "shopping",],
   username: "Tal",
-  lang: 'en',
+  lang: 'he',
   accountName: 'Direct',
   favColor: 'steelblue',
   accountNumber: 332211,

@@ -1,21 +1,21 @@
 <template>
  <section class="user-settings grid">
   <button class="icon close-modal-btn" @click="closeModal" v-icon="'times'"></button>
-  <h1 class="modal-header flex">User Settings</h1>
+  <h1 class="modal-header flex" v-trans="'user-settings'">User Settings</h1>
   <!-- <div class="modal-img">
    <img src="src/assets/img/pngwing.com.png" alt="">
   </div> -->
   <form class="modal-content flex" @submit.stop="updateUser">
-   <label for="username">username</label>
+   <label for="username" v-trans="'username'">username</label>
    <input v-model="user.username" type="text" name="username">
-   <label for="account-name">account name</label>
+   <label for="account-name" v-trans="'account-name'">account name</label>
    <input v-model="user.accountName" type="text" name="account-name">
-   <label for="account-number">
+   <label for="account-number" v-trans="'account-number'">
     account number
    </label>
    <input v-model="user.accountNumber" type="number" name="account-name">
 
-   <label for="language">
+   <label for="language" v-trans="'language'">
     language
    </label>
    <select class="select" name="language" v-model="user.lang">
@@ -24,7 +24,7 @@
    </select>
   </form>
   <div class="modal-actions flex align-center">
-   <button class="submit" @click="updateUser">save changes</button>
+   <button class="submit" @click="updateUser" v-trans="'user-set-btn'">save changes</button>
   </div>
  </section>
 </template>
@@ -47,6 +47,7 @@ export default {
    this.$router.go(-1)
   },
   loadUser(user) {
+   console.log('user:', user)
    this.user = { ...user }
   },
   updateUser() {
