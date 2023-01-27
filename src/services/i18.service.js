@@ -3,15 +3,15 @@
 const trans = {
  // table header
  'name': {
-  en: 'name',
+  en: 'Name',
   he: 'שם'
  },
  'amount': {
-  en: 'amount',
+  en: 'Amount',
   he: 'סכום'
  },
  'action': {
-  en: 'actions',
+  en: 'Actions',
   he: 'פעולות'
  },
  'app-title': {

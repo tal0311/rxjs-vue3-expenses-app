@@ -23,11 +23,11 @@ const icon = {
 }
 const trans = {
   mounted: (el, binding) => {
-    const userLang = userService.getByKey()
-    const icon = getSvg(binding.value)
-    el.innerHTML = icon
+    const userLang = userService.getByKey('lang')
+    const txt = getTrans(binding.value, userLang)
+    el.innerHTML = txt
   },
 
 }
 
-export { edit, icon }
+export { edit, icon, trans }

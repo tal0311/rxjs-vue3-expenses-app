@@ -1,7 +1,7 @@
 <template>
  <div class="table-headers row">
   <div @click="onSort('content')" class="table-header cell">
-   <span>Name</span>
+   <span v-trans="'name'">Name</span>
   </div>
 
   <div @click="onSort('amount')" class="table-header cell">
