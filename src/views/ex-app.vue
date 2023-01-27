@@ -1,8 +1,8 @@
 <template>
  <section v-if="items" class="ex-app">
-  <app-filter :icon="setIcon" @filter="setFilter" :categories="categories" @toggle-view="setView" />
+  <app-filter :icon="setIcon" @filter="setFilter" :categories="userSettings.categories" @toggle-view="setView" />
   <section :class="['ex-list', view]">
-   <table-headers @sort="setSort" />
+   <table-headers :lang="userSettings.lang" @sort="setSort" />
    <ex-preview v-for="item in items" :key="item.id" :item="item" @remove="removeEx" />
   </section>
   <RouterView />
@@ -16,7 +16,7 @@ import exPreview from '../components/ex-preview.vue'
 import { itemService } from './../services/item.service'
 import { userService } from './../services/user.service'
 
-import { map } from 'rxjs'
+
 export default {
  name: 'ex-app',
  created() {
@@ -24,17 +24,16 @@ export default {
   userService.getSettings()
   this.filterSub =
    itemService.filter$.subscribe(this.setQueryParams)
-  this.userSetSub = userService.userSettings$.pipe(
-   map((userSettings) => userSettings.categories)
-  ).subscribe(this.loadCategories)
+  this.userSetSub = userService.userSettings$.subscribe(this.loadUserSettings)
   this.itemSub = itemService.ex$.subscribe(this.loadItems)
  },
  data() {
   return {
    itemSub: null,
    items: null,
-   categories: null,
-   view: 'table'
+   // categories: null,
+   view: 'table',
+   userSettings: null
   }
  },
  computed: {
@@ -49,11 +48,10 @@ export default {
   setQueryParams(params) {
    this.$router.push({ query: params })
   },
-  loadCategories(categories) {
-   this.categories = categories
+  loadUserSettings(settings) {
+   this.userSettings = settings
   },
   loadItems(items) {
-
    this.items = { ...items }
   },
   setView() {

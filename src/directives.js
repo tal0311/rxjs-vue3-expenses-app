@@ -27,6 +27,11 @@ const trans = {
     const txt = getTrans(binding.value, userLang)
     el.innerHTML = txt
   },
+  updated: (el, binding) => {
+    const userLang = userService.getByKey('lang')
+    const txt = getTrans(binding.value, userLang)
+    el.innerHTML = txt
+  }
 
 }
 
