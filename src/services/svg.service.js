@@ -1,8 +1,8 @@
 const svgs = {
   grid:
-    '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M3.2 11V3.2H11V11Zm0 9.8V13H11v7.8ZM13 11V3.2h7.8V11Zm0 9.8V13h7.8v7.8Z"/></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="M6.792 18.458V6.792H18.5v11.666Zm0 14.75V21.5H18.5v11.708Zm14.75-14.75V6.792h11.666v11.666Zm0 14.75V21.5h11.666v11.708Z"/></svg>',
   row:
-    '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M20.8 20.8H3.2v-4.7h17.6Zm0-6.35H3.2v-4.9h17.6Zm0-6.55H3.2V3.2h17.6Z"/></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="M33.208 33.208H6.792v-7.791h26.416Zm0-9.166H6.792v-8.125h26.416Zm0-9.459H6.792V6.792h26.416Z"/></svg>',
   add:
     '<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M11.175 18.85V12.8h-6.05v-1.65h6.05V5.1h1.65v6.05h6.05v1.65h-6.05v6.05Z"/></svg>',
   times:
