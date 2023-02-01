@@ -16,11 +16,22 @@
       box-shadow: $bs;
       padding: 1rem;
       border-radius: 0.2em;
+
+      .actions-container {
+        opacity: 0;
+      }
       .cell:last-child {
         position: absolute;
         top: 1em;
         right: 1em;
         max-width: 2em;
+      }
+      &:hover {
+        .actions-container {
+          opacity: 1;
+          display: flex;
+          flex-direction: column;
+        }
       }
     }
     .table-headers {
@@ -42,6 +53,15 @@
     .cell:last-child {
       text-align: end;
     }
+
+    .actions-container {
+      justify-content: end;
+      & > * {
+        margin-left: 0.5em;
+        transform: translateY(5px);
+      }
+    }
+
     &:hover {
       // border-bottom: 1px inset rgb(222, 222, 222);
     }
