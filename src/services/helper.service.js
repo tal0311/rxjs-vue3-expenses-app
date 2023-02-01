@@ -1,8 +1,3 @@
-export function getHelperContent(to) {
- return content[to.name] || content['default']
-
-}
-
 const content = {
  'settings': {
   content: 'In the user settings we can change the main features the user works with.Username, color, language and more....',
@@ -18,5 +13,8 @@ const content = {
  }
 }
 
+export function getHelperContent(to) {
+ return content[to.name] || content['default']
 
+}
 
