@@ -11,9 +11,9 @@
   </div>
   <div class="cell" @click="$emit('remove', item.id)">
    <div class="actions-container flex">
-    <div class="icon" v-icon="'edit'"></div>
-    <div class="icon" v-icon="'archive'"></div>
-    <div class="icon" v-icon="'trash'"></div>
+    <i class="icon" v-icon="'edit'"></i>
+    <i class="icon" v-icon="'archive'"></i>
+    <i class="icon" v-icon="'trash'"></i>
    </div>
   </div>
  </article>
