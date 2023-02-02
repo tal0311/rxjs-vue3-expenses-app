@@ -9,11 +9,14 @@
   <div class="cell">
    <p>{{ getDate }}</p>
   </div>
-  <div class="cell" @click="$emit('remove', item.id)">
-   <div class="actions-container flex">
-    <i class="icon" v-icon="'edit'"></i>
-    <i class="icon" v-icon="'archive'"></i>
-    <i class="icon" v-icon="'trash'"></i>
+  <div class="cell">
+   <div :class="['actions-container flex', isActions && 'relative']">
+    <i class="icon" v-icon="'options'" v-if="!isActions" @click="isActions = !isActions">actions</i>
+    <section v-else :style="getStyle">
+     <i class="icon" v-icon="'edit'"></i>
+     <i class="icon" v-icon="'archive'"></i>
+     <i class="icon" @click="$emit('remove', item.id)" v-icon="'trash'"></i>
+    </section>
    </div>
   </div>
  </article>
@@ -26,6 +29,11 @@ export default {
  emits: ['remove'],
  props: {
   item: Object
+ },
+ data() {
+  return {
+   isActions: false
+  }
  },
  methods: {
   log() {
@@ -40,7 +48,17 @@ export default {
    return {
     'border-Left': `5px solid ${setCatColor(this.item.category)}`
    }
+  },
+  getStyle() {
+   if (this.isActions) {
+    return {
+     'position': 'absolute',
+     'display': 'flex',
+     'right': '0',
+     'transform': 'translateY(-60%)',
 
+    }
+   }
   }
  }
 }
