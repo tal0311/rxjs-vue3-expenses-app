@@ -21,7 +21,8 @@ export default {
       routes: [
         { path: '/', value: 'Home', icon: 'home' },
         { path: '/app', value: 'App', icon: 'app' },
-        { path: '/app/settings', value: 'User Settings', icon: 'settings' }
+        { path: '/app/settings', value: 'User Settings', icon: 'settings' },
+        { path: '/app/stats', value: 'Statistics', icon: 'stat' }
       ]
     }
   }
