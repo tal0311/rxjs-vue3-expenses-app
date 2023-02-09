@@ -1,6 +1,7 @@
 <template>
  <section v-if="items" class="ex-app">
-  <app-filter :icon="setIcon" @filter="setFilter" :categories="userSettings.categories" @toggle-view="setView" />
+  <app-filter :icon="setIcon" :archivedAmount="archivedAmount" @archived-amount="getArchivedAmount" @filter="setFilter"
+   :categories="userSettings.categories" @toggle-view="setView" />
   <section :class="['ex-list', view]">
    <table-headers :lang="userSettings.lang" @sort="setSort" />
    <ex-preview v-for="item in items" :key="item.id" :item="item" @remove="removeEx" />
@@ -31,9 +32,10 @@ export default {
   return {
    itemSub: null,
    items: null,
-   // categories: null,
+   isArchived: false,
    view: 'table',
-   userSettings: null
+   userSettings: null,
+   archivedAmount: null
   }
  },
  computed: {
@@ -43,6 +45,7 @@ export default {
  },
  methods: {
   setFilter(filter) {
+   console.log('filter at ex-app:', filter)
    itemService.setFilter({ ...filter })
   },
   setQueryParams(params) {
@@ -52,6 +55,7 @@ export default {
    this.userSettings = settings
   },
   loadItems(items) {
+   console.log('items:', items)
    this.items = { ...items }
   },
   setView() {
@@ -62,13 +66,17 @@ export default {
   },
   removeEx(exId) {
    itemService.removeEx(exId)
+  },
+  getArchivedAmount() {
+   this.archivedAmount = itemService.getArchivedAmount()
   }
 
 
  },
  watch: {
   $route(to) {
-   itemService.setFilter({ ...to.query })
+   const isArchived = to.query.isArchived === 'true' ? true : false
+   itemService.setFilter({ ...to.query, isArchived })
   }
  },
  components: {

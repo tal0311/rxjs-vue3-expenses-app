@@ -12,6 +12,28 @@
   padding: 0.2em 0.5em;
   margin-inline-end: 1em;
  }
+ .archive-btn {
+  position: relative;
+  &.active {
+   box-shadow: 0 0 1px 1px $clr7;
+  }
+  &:hover {
+   &:after {
+    content: attr(data-amount);
+
+    position: absolute;
+    font-size: 16px;
+    background: #333;
+    color: #fff;
+    padding: 0.2em;
+    border-radius: 0.2em;
+
+    bottom: -27px;
+    width: max-content;
+    left: 0;
+   }
+  }
+ }
  input:focus,
  select:focus {
   outline: 1px solid lightgray;

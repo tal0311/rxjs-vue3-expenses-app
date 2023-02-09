@@ -1,4 +1,4 @@
-import exDB from "./../../data/todo.json"
+import exDB from "./../../data/expense.json"
 import { BehaviorSubject, of } from "rxjs"
 
 const gView = {
@@ -11,7 +11,7 @@ var gSortBy = {
 }
 const _ex$ = new BehaviorSubject([])
 const ex$ = _ex$.asObservable()
-const _filter$ = new BehaviorSubject({ txt: '', category: '' })
+const _filter$ = new BehaviorSubject({ txt: '', category: '', isArchived: false })
 const filter$ = _filter$.asObservable()
 const _view$ = new BehaviorSubject(gView)
 const view$ = _view$.asObservable()
@@ -23,12 +23,16 @@ function query() {
   _ex$.next(ex)
 }
 
+
 function _filterItems(expanse) {
   const filter = _filter$.getValue()
   const regex = new RegExp(filter.txt)
+  console.log(JSON.parse(filter.isArchived))
   return filter.category
-    ? regex.test(expanse.content) && expanse.category === filter.category
-    : regex.test(expanse.content)
+    ? regex.test(expanse.content) && expanse.category === filter.category &&
+    expanse.isArchived === JSON.parse(filter.isArchived)
+    : regex.test(expanse.content) &&
+    expanse.isArchived === JSON.parse(filter.isArchived)
 }
 
 function _sortEx(ex, sortBy) {
@@ -53,11 +57,11 @@ function removeEx(exId) {
   _ex$.next(exs)
 }
 
-function updateEx(todoId, key, value) {
-  const todo = getById(todoId)
-  todo[key] = value
-  const idx = exDB.findIndex((todo) => todo.id === todoId)
-  exDB.splice(idx, 1, todo)
+function updateEx(exId, key, value) {
+  const ex = getById(exId)
+  ex[key] = value
+  const idx = exDB.findIndex((ex) => ex.id === exId)
+  exDB.splice(idx, 1, ex)
   _ex$.next(exDB)
 }
 
@@ -73,6 +77,7 @@ function setSort(key) {
   query()
 }
 function setFilter(filter) {
+  console.log(filter)
   _filter$.next(filter)
   query()
 }
@@ -89,6 +94,10 @@ function createEx(content) {
     cratedAt: Date.now()
   }
 }
+function getArchivedAmount() {
+  return exDB.filter(ex => ex.isArchived).length
+}
+
 
 // UTILS
 function makeId() {
@@ -105,5 +114,6 @@ export const itemService = {
   removeEx,
   updateEx,
   setFilter,
-  setSort
+  setSort,
+  getArchivedAmount
 }
