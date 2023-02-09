@@ -26,10 +26,8 @@ function getByKey(key) {
 }
 
 function updateUser(userSettings) {
-  console.log('userSettings:', userSettings)
   _userSettings$.next(userSettings)
   const userSet = _userSettings$.getValue()
-  console.log('userSet:', userSet)
 }
 export const userService = {
   userSettings$,

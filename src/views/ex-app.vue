@@ -45,7 +45,6 @@ export default {
  },
  methods: {
   setFilter(filter) {
-   console.log('filter at ex-app:', filter)
    itemService.setFilter({ ...filter })
   },
   setQueryParams(params) {
@@ -55,7 +54,6 @@ export default {
    this.userSettings = settings
   },
   loadItems(items) {
-   console.log('items:', items)
    this.items = { ...items }
   },
   setView() {

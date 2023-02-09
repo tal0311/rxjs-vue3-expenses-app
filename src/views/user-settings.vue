@@ -43,11 +43,9 @@ export default {
  },
  methods: {
   closeModal() {
-   console.log('this.$router:', this.$router)
    this.$router.go(-1)
   },
   loadUser(user) {
-   console.log('user:', user)
    this.user = { ...user }
   },
   updateUser() {

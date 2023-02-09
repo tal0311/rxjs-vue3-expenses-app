@@ -36,9 +36,6 @@ export default {
   }
  },
  methods: {
-  log() {
-   console.log('log');
-  }
  },
  computed: {
   getDate() {

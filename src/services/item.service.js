@@ -27,7 +27,7 @@ function query() {
 function _filterItems(expanse) {
   const filter = _filter$.getValue()
   const regex = new RegExp(filter.txt)
-  console.log(JSON.parse(filter.isArchived))
+
   return filter.category
     ? regex.test(expanse.content) && expanse.category === filter.category &&
     expanse.isArchived === JSON.parse(filter.isArchived)
@@ -77,7 +77,6 @@ function setSort(key) {
   query()
 }
 function setFilter(filter) {
-  console.log(filter)
   _filter$.next(filter)
   query()
 }

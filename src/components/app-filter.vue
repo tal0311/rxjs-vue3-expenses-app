@@ -40,7 +40,6 @@ export default {
   },
   setArchived() {
    this.filter.isArchived = !this.filter.isArchived
-   console.log('this.isArchived:', this.isArchived)
    this.setFilter()
   }
  },

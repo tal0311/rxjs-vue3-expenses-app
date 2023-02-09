@@ -30,8 +30,6 @@ export default {
  },
  methods: {
   onSort(key) {
-   console.log('key:', key)
-
    this.$emit('sort', key)
   }
  }
