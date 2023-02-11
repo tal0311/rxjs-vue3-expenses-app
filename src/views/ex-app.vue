@@ -6,7 +6,6 @@
       <table-headers :lang="userSettings.lang" @sort="setSort" />
       <ex-preview v-for="item in items" :key="item.id" :item="item" @action="onAction" />
     </section>
-    <RouterView />
   </section>
 </template>
 
