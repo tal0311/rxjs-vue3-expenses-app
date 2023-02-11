@@ -59,10 +59,15 @@ function removeEx(exId) {
 
 function updateEx(exId, key, value) {
   const ex = getById(exId)
-  ex[key] = value
+
+  console.log(typeof ex[key])
+  typeof ex[key] === 'boolean'
+    ? ex[key] = !ex[key]
+    : ex[key] = value
+
   const idx = exDB.findIndex((ex) => ex.id === exId)
   exDB.splice(idx, 1, ex)
-  _ex$.next(exDB)
+  query()
 }
 
 function getById(todoId) {

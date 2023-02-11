@@ -4,7 +4,7 @@
    :categories="userSettings.categories" @toggle-view="setView" />
   <section :class="['ex-list', view]">
    <table-headers :lang="userSettings.lang" @sort="setSort" />
-   <ex-preview v-for="item in items" :key="item.id" :item="item" @remove="removeEx" />
+   <ex-preview v-for="item in items" :key="item.id" :item="item" @action="onAction" />
   </section>
   <RouterView />
  </section>
@@ -54,6 +54,7 @@ export default {
    this.userSettings = settings
   },
   loadItems(items) {
+   console.log(items)
    this.items = { ...items }
   },
   setView() {
@@ -65,8 +66,28 @@ export default {
   removeEx(exId) {
    itemService.removeEx(exId)
   },
+  updateItem(itemId, key, value) {
+   itemService.updateEx(itemId, key, value)
+  },
   getArchivedAmount() {
    this.archivedAmount = itemService.getArchivedAmount()
+  },
+  onAction({ type, itemId }) {
+   switch (type) {
+    case 'remove':
+     this.removeEx(itemId)
+     break;
+    case 'edit':
+     this.$router.push({ name: 'edit' })
+     break;
+    case 'archive':
+     // console.log('type:', type)
+     this.updateItem(itemId, 'isArchived')
+     break;
+
+    default:
+     break;
+   }
   }
 
 
