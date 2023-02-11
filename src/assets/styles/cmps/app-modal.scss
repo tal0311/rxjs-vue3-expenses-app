@@ -1,0 +1,15 @@
+.modal-container {
+ background: $clr6;
+ height: fit-content;
+ box-shadow: $bs;
+
+ .user-options {
+  & > * {
+   padding-inline: 1em;
+   margin-block: 0.5em;
+  }
+ }
+ &:has(.user-options) {
+  transform: translateX(-50%);
+ }
+}

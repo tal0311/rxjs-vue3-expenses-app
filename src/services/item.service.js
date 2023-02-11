@@ -104,8 +104,9 @@ function getArchivedAmount() {
   return exDB.filter(ex => ex.isArchived).length
 }
 
-function setModalType(type) {
-  _modal$.next(type)
+function setModalType(type, pos) {
+  console.log(type);
+  _modal$.next({ type, pos })
 }
 
 // UTILS
