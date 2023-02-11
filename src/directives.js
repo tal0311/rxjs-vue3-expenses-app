@@ -42,20 +42,10 @@ const clickHandler = (ev) => {
 
 
 const clickOutside = {
-  mounted(el, { value: cb }) {
-    el.clickOutside = ({ clientX, clientY }) => {
-      const { left, top, width, height } = el.getBoundingClientRect()
-      if (
-        !(clientX > left &&
-          clientX < left + width &&
-          clientY > top &&
-          clientY < top + height)
-      ) {
-        cb()
-        console.log('outside')
+  mounted(el) {
+    el.clickOutside = (ev) => {
+      if (!el.contains(ev.target)) {
         itemService.setModalType('')
-      } else {
-        console.log('inside')
       }
     }
     setTimeout(() => {
