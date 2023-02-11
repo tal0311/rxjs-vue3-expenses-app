@@ -22,6 +22,7 @@
   </article>
 </template>
 
+// TODO:CLOSE ACTIONS AFTER CLICK
 <script>
 import { setCatColor } from '../services/category.service';
 export default {

@@ -17,7 +17,7 @@ import exPreview from '../components/ex-preview.vue'
 import { itemService } from './../services/item.service'
 import { userService } from './../services/user.service'
 
-// TODO:MAKE 1 MODAL ACROSS AL APP
+
 export default {
   name: 'ex-app',
   created() {

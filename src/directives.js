@@ -22,6 +22,7 @@ const icon = {
     el.innerHTML = icon
   }
 }
+
 const trans = {
   mounted: (el, binding) => {
     const userLang = userService.getByKey('lang')
@@ -35,11 +36,6 @@ const trans = {
   }
 
 }
-
-const clickHandler = (ev) => {
-  console.log(ev.target)
-}
-
 
 const clickOutside = {
   mounted(el) {
