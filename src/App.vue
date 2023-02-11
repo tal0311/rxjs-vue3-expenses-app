@@ -1,12 +1,12 @@
 <template>
   <section class="full">
-    <appHeader @setModal="setModal"></appHeader>
+    <appHeader @setModal="setModalType"></appHeader>
     <main class="main-container full">
       <RouterView></RouterView>
     </main>
   </section>
   <app-helper></app-helper>
-  <app-modal :cmp="modalCmp"></app-modal>
+  <app-modal :cmp="modalCmpInfo"></app-modal>
 </template>
 
 <script>
@@ -20,13 +20,16 @@ export default {
   },
   data() {
     return {
-      modalCmp: ''
+      modalCmpInfo: null
     }
   },
   methods: {
-    setModal(type) {
-      this.modalCmp = type
+    setModal(modalInfo) {
+      this.modalCmpInfo = modalInfo
     },
+    setModalType(type, pos = null) {
+      itemService.setModalType(type, pos)
+    }
 
   },
   components: {

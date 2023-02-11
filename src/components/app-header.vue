@@ -1,5 +1,5 @@
 <template>
-  <header class="app-header main-container full">
+  <header class="app-header main-container full flex">
     <section class="header-container flex ">
       <h1 class="logo">Expense Tracker rxjs</h1>
       <nav>
@@ -7,14 +7,16 @@
         <RouterLink v-for="(route, idx) in routes" :key="idx" :to="route.path" v-icon="route.icon">
           {{ route.value }}
         </RouterLink>
-        <i @click="$emit('setModal','userSettings' )" v-icon="'settings'"></i>
+
       </nav>
+      <user-preview />
     </section>
 
   </header>
 </template>
 
 <script>
+import userPreview from './user-preview.vue';
 export default {
   name: 'app-header',
   props: ['setModal'],
@@ -26,6 +28,9 @@ export default {
         { path: '/app/stats', value: 'Statistics', icon: 'stat' }
       ]
     }
+  },
+  components: {
+    userPreview
   }
 }
 </script>
