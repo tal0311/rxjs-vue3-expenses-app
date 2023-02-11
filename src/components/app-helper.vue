@@ -2,12 +2,9 @@
   <section @click="toggle" :class="[isOpen && 'open', isNotified && 'notify', 'app-helper']">
     <button class="icon" v-icon="'help'"></button>
     <section v-if="isOpen" class="content">
-
       <h3>{{ header }}</h3>
       <p>{{ content }}</p>
-
     </section>
-
   </section>
 </template>
 

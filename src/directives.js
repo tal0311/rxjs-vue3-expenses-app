@@ -1,6 +1,7 @@
 import getSvg from './services/svg.service'
 import { getTrans } from './services/i18.service'
 import { userService } from './services/user.service'
+import { itemService } from './services/item.service'
 
 const edit = {
   mounted: (el, binding) => {
@@ -35,4 +36,42 @@ const trans = {
 
 }
 
-export { edit, icon, trans }
+const clickHandler = (ev) => {
+  console.log(ev.target)
+}
+
+
+const clickOutside = {
+  mounted(el) {
+    el.clickOutside = (ev) => {
+      if (!el.contains(ev.target)) {
+        itemService.setModalType('')
+      }
+    }
+    setTimeout(() => {
+      document.addEventListener('click', el.clickOutside)
+    }, 0)
+  },
+  unmounted(el) {
+    document.removeEventListener('click', el.clickOutside)
+  },
+}
+
+
+
+// ((el, binding) => {
+//   const handler = (event) => {
+//     if (!el.contains(event.target)) {
+//       binding.value(event);
+//     }
+//   };
+
+//   onMounted(() => {
+//     document.addEventListener('click', handler);
+//   });
+// });
+
+
+
+
+export { edit, icon, trans, clickOutside }
