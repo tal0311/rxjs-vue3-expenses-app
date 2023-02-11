@@ -1,6 +1,7 @@
 import getSvg from './services/svg.service'
 import { getTrans } from './services/i18.service'
 import { userService } from './services/user.service'
+import { itemService } from './services/item.service'
 
 const edit = {
   mounted: (el, binding) => {
@@ -35,4 +36,52 @@ const trans = {
 
 }
 
-export { edit, icon, trans }
+const clickHandler = (ev) => {
+  console.log(ev.target)
+}
+
+
+const clickOutside = {
+  mounted(el, { value: cb }) {
+    el.clickOutside = ({ clientX, clientY }) => {
+      const { left, top, width, height } = el.getBoundingClientRect()
+      if (
+        !(clientX > left &&
+          clientX < left + width &&
+          clientY > top &&
+          clientY < top + height)
+      ) {
+        cb()
+        console.log('outside')
+        itemService.setModalType('')
+      } else {
+        console.log('inside')
+      }
+    }
+    setTimeout(() => {
+      document.addEventListener('click', el.clickOutside)
+    }, 0)
+  },
+  unmounted(el) {
+    document.removeEventListener('click', el.clickOutside)
+  },
+}
+
+
+
+// ((el, binding) => {
+//   const handler = (event) => {
+//     if (!el.contains(event.target)) {
+//       binding.value(event);
+//     }
+//   };
+
+//   onMounted(() => {
+//     document.addEventListener('click', handler);
+//   });
+// });
+
+
+
+
+export { edit, icon, trans, clickOutside }
