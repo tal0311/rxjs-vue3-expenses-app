@@ -1,6 +1,6 @@
 <template>
   <section class="full">
-    <appHeader></appHeader>
+    <appHeader @setModal="setModal"></appHeader>
     <main class="main-container full">
       <RouterView></RouterView>
     </main>
@@ -32,6 +32,9 @@ export default {
   components: {
     appHeader,
     appHelper,
+  },
+  unmounted() {
+    this.modalSub.subscribe()
   }
 }
 </script>

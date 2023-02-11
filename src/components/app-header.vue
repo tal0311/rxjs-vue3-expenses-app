@@ -7,6 +7,7 @@
         <RouterLink v-for="(route, idx) in routes" :key="idx" :to="route.path" v-icon="route.icon">
           {{ route.value }}
         </RouterLink>
+        <i @click="$emit('setModal','userSettings' )" v-icon="'settings'"></i>
       </nav>
     </section>
 
@@ -16,12 +17,12 @@
 <script>
 export default {
   name: 'app-header',
+  props: ['setModal'],
   data() {
     return {
       routes: [
         { path: '/', value: 'Home', icon: 'home' },
         { path: '/app', value: 'App', icon: 'app' },
-        { path: '/app/settings', value: 'User Settings', icon: 'settings' },
         { path: '/app/stats', value: 'Statistics', icon: 'stat' }
       ]
     }

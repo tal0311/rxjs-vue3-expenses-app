@@ -91,7 +91,10 @@ export default {
           break;
       }
     },
-
+    setModalType(type) {
+      console.log('type:', type)
+      itemService.setModalType(type)
+    }
 
 
   },
