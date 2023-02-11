@@ -15,6 +15,8 @@ const _filter$ = new BehaviorSubject({ txt: '', category: '', isArchived: false 
 const filter$ = _filter$.asObservable()
 const _view$ = new BehaviorSubject(gView)
 const view$ = _view$.asObservable()
+const _modal$ = new BehaviorSubject()
+const modal$ = _modal$.asObservable()
 
 function query() {
   let ex = exDB
@@ -102,6 +104,9 @@ function getArchivedAmount() {
   return exDB.filter(ex => ex.isArchived).length
 }
 
+function setModalType(type) {
+  _modal$.next(type)
+}
 
 // UTILS
 function makeId() {
@@ -119,5 +124,7 @@ export const itemService = {
   updateEx,
   setFilter,
   setSort,
-  getArchivedAmount
+  getArchivedAmount,
+  modal$,
+  setModalType
 }

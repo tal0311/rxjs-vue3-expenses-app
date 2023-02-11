@@ -1,6 +1,5 @@
 <template>
  <section class="user-settings grid">
-  <button class="icon close-modal-btn" @click="closeModal" v-icon="'times'"></button>
   <h1 class="modal-header flex" v-trans="'user-settings'">User Settings</h1>
   <!-- <div class="modal-img">
    <img src="src/assets/img/pngwing.com.png" alt="">
@@ -30,7 +29,7 @@
 </template>
 
 <script>
-import { userService } from '../services/user.service'
+import { userService } from './../../services/user.service'
 export default {
  name: 'user-settings',
  created() {
@@ -42,9 +41,7 @@ export default {
   }
  },
  methods: {
-  closeModal() {
-   this.$router.go(-1)
-  },
+
   loadUser(user) {
    this.user = { ...user }
   },
