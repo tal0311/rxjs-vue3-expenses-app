@@ -13,9 +13,8 @@
    <div :class="['actions-container flex', isActions && 'relative']">
     <i class="icon" v-icon="'options'" v-if="!isActions" @click="isActions = !isActions">actions</i>
     <section v-else :style="getStyle">
-     <i class="icon" @click="$emit('action', { type: 'edit', itemId: item.id })" v-icon="'edit'"></i>
-     <i class="icon" @click="$emit('action', { type: 'archive', itemId: item.id })" v-icon="'archive'"></i>
-     <i class="icon" @click="$emit('action', { type: 'remove', itemId: item.id })" v-icon="'trash'"></i>
+     <i v-for="action in actions" :class="action.icon" @click="$emit('action', { type: action.icon, itemId: item.id })"
+      v-icon="action.icon" :key="action.icon"></i>
     </section>
    </div>
   </div>
@@ -32,7 +31,12 @@ export default {
  },
  data() {
   return {
-   isActions: false
+   isActions: false,
+   actions: [
+    { icon: 'edit', title: 'Edit item' },
+    { icon: 'archive', title: 'Archive item' },
+    { icon: 'trash', title: 'Remove item' },
+   ]
   }
  },
  methods: {
