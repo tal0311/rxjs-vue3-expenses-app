@@ -13,9 +13,9 @@
    <div :class="['actions-container flex', isActions && 'relative']">
     <i class="icon" v-icon="'options'" v-if="!isActions" @click="isActions = !isActions">actions</i>
     <section v-else :style="getStyle">
-     <i class="icon" v-icon="'edit'"></i>
-     <i class="icon" v-icon="'archive'"></i>
-     <i class="icon" @click="$emit('remove', item.id)" v-icon="'trash'"></i>
+     <i class="icon" @click="$emit('action', { type: 'edit', itemId: item.id })" v-icon="'edit'"></i>
+     <i class="icon" @click="$emit('action', { type: 'archive', itemId: item.id })" v-icon="'archive'"></i>
+     <i class="icon" @click="$emit('action', { type: 'remove', itemId: item.id })" v-icon="'trash'"></i>
     </section>
    </div>
   </div>
@@ -26,7 +26,7 @@
 import { setCatColor } from '../services/category.service';
 export default {
  name: 'ex-preview',
- emits: ['remove'],
+ emits: ['action'],
  props: {
   item: Object
  },
