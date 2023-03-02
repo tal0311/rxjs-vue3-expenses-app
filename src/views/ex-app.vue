@@ -1,7 +1,7 @@
 <template>
   <section v-if="items" class="ex-app">
-    <app-filter :icon="setIcon" :archivedAmount="archivedAmount" @archived-amount="getArchivedAmount"
-      @filter="setFilter" :categories="userSettings.categories" @toggle-view="setView" />
+    <AppFilter :icon="setIcon" :archivedAmount="archivedAmount" @archived-amount="getArchivedAmount" @filter="setFilter"
+      :categories="userSettings.categories" @toggle-view="setView" />
     <section :class="['ex-list', view]">
       <table-headers :lang="userSettings.lang" @sort="setSort" />
       <ex-preview v-for="item in items" :key="item.id" :item="item" @action="onAction" />
@@ -11,7 +11,7 @@
 
 <script>
 import tableHeaders from '../components/table-headers.vue'
-import appFilter from '../components/app-filter.vue'
+import AppFilter from '../components/AppFilter.vue'
 import exPreview from '../components/ex-preview.vue'
 import { itemService } from './../services/item.service'
 import { userService } from './../services/user.service'
@@ -116,6 +116,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
