@@ -5,9 +5,9 @@
 </template>
 
 <script >
-import UserOptions from './user-options.vue';
-import ExEdit from '../ex-edit.vue';
-import UserSettings from './user-settings.vue';
+import UserOptions from './UserOptions.vue';
+import ExEdit from './../ExEdit.vue';
+import UserSettings from './UserSettings.vue';
 import { itemService } from '../../services/item.service';
 
 export default {

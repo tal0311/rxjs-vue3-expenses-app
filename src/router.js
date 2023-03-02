@@ -1,17 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import home from './views/home.vue'
-import exApp from './views/ex-app.vue'
+import AppHome from './views/AppHome.vue'
+import exApp from './views/ExApp.vue'
 
-import appStats from './components/stats.vue'
-
-import { itemService } from './services/item.service'
+import AppStats from './components/AppStats.vue'
 
 // const filterGuard = (to) => {
 //  return { path: to.path, query: {}, hash: to.hash }
 // }
 
 const routes = [
- { path: '/', component: home, name: 'home' },
+ { path: '/', component: AppHome, name: 'home' },
  {
   path: '/app',
   component: exApp,
@@ -19,7 +17,7 @@ const routes = [
   // beforeEnter: [filterGuard],
 
  },
- { path: '/app/stats', component: appStats, name: 'statistics' }
+ { path: '/app/stats', component: AppStats, name: 'statistics' }
 ]
 
 export const router = createRouter({

@@ -1,12 +1,12 @@
 <template>
   <section class="full">
-    <AppHeader></AppHeader>
+    <AppHeader />
     <main class="main-container full">
-      <RouterView></RouterView>
+      <RouterView />
     </main>
   </section>
-  <AppHelper></AppHelper>
-  <AppModal v-if="modalCmpInfo" :cmp="modalCmpInfo"></AppModal>
+  <AppHelper />
+  <AppModal v-if="modalCmpInfo" :cmp="modalCmpInfo" />
 </template>
 
 <script>

@@ -9,16 +9,17 @@
         </RouterLink>
 
       </nav>
-      <user-preview />
+      <UsePreview />
     </section>
 
   </header>
 </template>
 
 <script>
-import { itemService } from '../services/item.service';
-itemService
-import userPreview from './user-preview.vue';
+import { itemService } from '../services/item.service'
+import UserPreview from './UserPreview.vue'
+
+
 export default {
   name: 'app-header',
   // emits: ['setModal'],
@@ -32,11 +33,9 @@ export default {
     }
   },
   components: {
-    userPreview
+    UserPreview
   }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
