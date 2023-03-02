@@ -75,7 +75,7 @@ export default {
     },
     onAction({ type, itemId }) {
       switch (type) {
-        case 'remove':
+        case 'trash':
           this.removeEx(itemId)
           break;
         case 'edit':
@@ -89,6 +89,7 @@ export default {
         default:
           break;
       }
+      // TODO: handle user msg
     },
     setModalType(type) {
       console.log('type:', type)

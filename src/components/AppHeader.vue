@@ -4,7 +4,7 @@
       <h1 class="logo">Expense Tracker rxjs</h1>
       <nav>
 
-        <RouterLink v-for="(route, idx) in routes" :data-title="route.value" :key="idx" :to="route.path"
+        <RouterLink v-for="(route, idx) in routes" class="icon" :data-title="route.value" :key="idx" :to="route.path"
           v-icon="route.icon">
           {{ route.value }}
         </RouterLink>

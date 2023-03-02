@@ -1,6 +1,6 @@
 <template>
-  <article :class="['ex-preview', item.category]" :data-title="item.category" :style="borderStyle">
-    <div class="cell">
+  <article :class="['ex-preview', item.category]" :style="borderStyle">
+    <div class="cell" :data-title="item.category">
       <p>{{ item.content }}</p>
     </div>
     <div class="cell">
@@ -13,9 +13,8 @@
       <div :class="['actions-container flex', isActions && 'relative']">
         <i class="icon" v-icon="'options'" v-if="!isActions" @click="isActions = !isActions">actions</i>
         <section v-else :style="getStyle">
-          <i v-for="action in actions" :class="action.icon"
-            @click="$emit('action', { type: action.icon, itemId: item.id })" v-icon="action.icon"
-            :key="action.icon"></i>
+          <i v-for="action in actions" :class="action.icon" @click="onAction(action.icon, item.id)" v-icon="action.icon"
+            :data-title="action.title" :key="action.icon"></i>
         </section>
       </div>
     </div>
@@ -42,6 +41,12 @@ export default {
     }
   },
   methods: {
+    onAction(type, itemId) {
+      this.isActions = !this.isActions
+      console.log('type:', type)
+      console.log('itemIdd:', itemId)
+      this.$emit('action', { type, itemId })
+    }
   },
   computed: {
     getDate() {
@@ -68,6 +73,4 @@ export default {
 
 </script>
 
-<style>
-
-</style>
+<style></style>

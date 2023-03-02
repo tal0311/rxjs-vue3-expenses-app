@@ -17,6 +17,7 @@
 </template>
 
 <script>
+// TODO: DEBOUNCE FILTER
 export default {
  name: 'app-filter',
  emits: ['filter', 'toggle-view', 'archived-amount'],
@@ -54,6 +55,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
