@@ -1,16 +1,24 @@
 .app-header {
-  background: crimson;
+  color: #fff;
+  margin-top: 1em;
   height: 10vh;
   .logo {
     font-size: 2rem;
   }
 
   .header-container {
+    box-shadow: 0 0 4px 4px #e1e1e1;
+    background: #537fe7;
+    border-radius: 0.5em;
+    padding-inline: 0.5em;
     align-items: center;
     justify-content: space-between;
     nav {
+      a {
+        fill: $clr6;
+      }
       a.router-link-exact-active {
-        fill: #888;
+        fill: #a9a8a8;
       }
       position: fixed;
       right: 0;
