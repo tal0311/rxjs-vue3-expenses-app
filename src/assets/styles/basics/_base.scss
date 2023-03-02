@@ -64,6 +64,7 @@ input {
   &:focus {
   }
 }
+// TODO: remove titles in mobile
 [data-title] {
   position: relative;
   &:hover {
@@ -79,7 +80,7 @@ input {
       text-transform: capitalize;
       bottom: -27px;
       width: max-content;
-      left: 4em;
+      left: 0;
     }
   }
   // &:hover {
