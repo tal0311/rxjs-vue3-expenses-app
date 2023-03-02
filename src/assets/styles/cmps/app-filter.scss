@@ -1,10 +1,18 @@
 .app-filter {
  box-shadow: $bs;
- margin: 0.5em 0;
+ margin: 1em 0;
+ &.grid {
+  place-content: center;
+  grid-template-columns: 50px 1fr;
+  place-items: center;
+  & > * {
+   grid-area: 1;
+  }
+ }
 
  .view-btn {
   height: 100%;
-  margin-inline-end: 1em;
+  margin-inline-start: 0.5em;
  }
  & > * :not(:last-child) {
   // padding: 0em 0.5em;

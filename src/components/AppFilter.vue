@@ -1,7 +1,7 @@
 <template>
- <section class="app-filter full flex align-center">
-  <button class="view-btn icon" v-icon="icon" @click="$emit('toggle-view')"></button>
-  <form @submit.prevent="setFilter">
+ <section class="app-filter grid full">
+  <i class="view-btn icon" v-icon="icon" @click="$emit('toggle-view')"></i>
+  <form class="flex" @submit.prevent="setFilter">
    <input type="search" v-model="filter.txt">
    <select v-if="categories" name="category" v-model="filter.category">
     <option value="">select category</option>
