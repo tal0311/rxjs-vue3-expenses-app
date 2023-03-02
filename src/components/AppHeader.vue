@@ -16,10 +16,12 @@
 </template>
 
 <script>
+import { itemService } from '../services/item.service';
+itemService
 import userPreview from './user-preview.vue';
 export default {
   name: 'app-header',
-  props: ['setModal'],
+  // emits: ['setModal'],
   data() {
     return {
       routes: [

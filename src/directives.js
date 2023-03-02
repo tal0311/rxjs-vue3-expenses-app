@@ -41,7 +41,7 @@ const clickOutside = {
   mounted(el) {
     el.clickOutside = (ev) => {
       if (!el.contains(ev.target)) {
-        itemService.setModalType('')
+        itemService.setModalType(null)
       }
     }
     setTimeout(() => {

@@ -15,7 +15,7 @@ const _filter$ = new BehaviorSubject({ txt: '', category: '', isArchived: false 
 const filter$ = _filter$.asObservable()
 const _view$ = new BehaviorSubject(gView)
 const view$ = _view$.asObservable()
-const _modal$ = new BehaviorSubject()
+const _modal$ = new BehaviorSubject(null)
 const modal$ = _modal$.asObservable()
 
 function query() {
@@ -104,9 +104,8 @@ function getArchivedAmount() {
   return exDB.filter(ex => ex.isArchived).length
 }
 
-function setModalType(type, pos) {
-  console.log(type);
-  _modal$.next({ type, pos })
+function setModalType(type) {
+  _modal$.next(type)
 }
 
 // UTILS

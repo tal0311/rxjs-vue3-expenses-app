@@ -1,15 +1,31 @@
 .modal-container {
  background: $clr6;
- height: fit-content;
+ padding: 0 0.5em;
  box-shadow: $bs;
+ // display: block;
 
- .user-options {
-  & > * {
-   padding-inline: 1em;
-   margin-block: 0.5em;
-  }
- }
  &:has(.user-options) {
-  transform: translateX(-50%);
+  position: fixed;
+  height: fit-content;
+  width: fit-content;
+  top: 65px;
+  right: 20px;
+ }
+ .user-options {
+  position: relative;
+  & > * {
+   margin: 0.2em 0;
+  }
+  &::after {
+   content: "";
+   position: absolute;
+   top: -7px;
+   background: white;
+   transform: rotate(136deg);
+   right: 0px;
+   z-index: -1;
+   height: 1em;
+   width: 1em;
+  }
  }
 }
