@@ -1,15 +1,26 @@
 <template>
  <section class="app-home">
-  <h1>home</h1>
-  <h1>add expanse</h1>
-  <h1>total expanses this week</h1>
-  <h1>graph expanses today</h1>
+  <AddEx />
+  <hr>
+  <WeekTotalVue />
+  <hr>
+  <DailyExVue />
  </section>
 </template>
 
 <script>
+
+import AddEx from '../components/AddEx.vue';
+import DailyExVue from '../components/DailyEx.vue';
+import WeekTotalVue from '../components/WeekTotal.vue';
+
 export default {
- name: 'app-home'
+ name: 'app-home',
+ components: {
+  AddEx,
+  WeekTotalVue,
+  DailyExVue
+ }
 }
 </script>
 
