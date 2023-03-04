@@ -1,5 +1,5 @@
 <template>
- <section class="app-filter grid full">
+ <section class="app-filter grid full ">
   <i class="view-btn icon" v-icon="icon" @click="$emit('toggle-view')"></i>
   <form class="flex" @submit.prevent="setFilter">
    <input type="search" v-model="filter.txt">
