@@ -1,45 +1,56 @@
 .app-filter {
  box-shadow: $bs;
  margin: 1em 0;
- &.grid {
-  place-content: center;
-  grid-template-columns: 50px 1fr;
-  place-items: center;
+
+ form.grid {
+  margin-inline-end: 1em;
+  gap: 5px;
+  grid-template-columns: 1fr repeat(3, 20%);
   & > * {
    grid-area: 1;
   }
  }
 
- .view-btn {
-  height: 100%;
-  transform: translateY(2px);
-  margin-inline-start: 0.5em;
- }
- & > * :not(:last-child) {
-  // padding: 0em 0.5em;
-  font-size: 1em;
-  padding: 0.2em 0.5em;
-  margin-inline-end: 1em;
- }
- .archive-btn {
-  position: relative;
-  &.active {
-   box-shadow: 0 0 1px 1px $clr7;
+ @media (min-width: 760px) {
+  &.grid {
+   place-content: center;
+   grid-template-columns: 50px 1fr;
+   place-items: center;
+   & > * {
+    grid-area: 1;
+   }
   }
-  &:hover {
-   &:after {
-    content: attr(data-amount);
+  .view-btn {
+   height: 100%;
+   transform: translateY(2px);
+   margin-inline-start: 0.5em;
+  }
+  & > * :not(:last-child) {
+   // padding: 0em 0.5em;
+   font-size: 1em;
+   padding: 0.2em 0.5em;
+   margin-inline-end: 1em;
+  }
+  .archive-btn {
+   position: relative;
+   &.active {
+    box-shadow: 0 0 1px 1px $clr7;
+   }
+   &:hover {
+    &:after {
+     content: attr(data-amount);
 
-    position: absolute;
-    font-size: 16px;
-    background: #333;
-    color: #fff;
-    padding: 0.2em;
-    border-radius: 0.2em;
+     position: absolute;
+     font-size: 16px;
+     background: #333;
+     color: #fff;
+     padding: 0.2em;
+     border-radius: 0.2em;
 
-    bottom: -27px;
-    width: max-content;
-    left: 0;
+     bottom: -27px;
+     width: max-content;
+     left: 0;
+    }
    }
   }
  }
