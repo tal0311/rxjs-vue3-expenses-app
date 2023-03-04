@@ -42,6 +42,7 @@ const clickOutside = {
     el.clickOutside = (ev) => {
       if (!el.contains(ev.target)) {
         itemService.setModalType(null)
+        console.log('closing')
       }
     }
     setTimeout(() => {

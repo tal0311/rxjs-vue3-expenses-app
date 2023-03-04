@@ -1,5 +1,5 @@
 <template>
-  <section ref="el" @click="SetModalType" class="user-preview">
+  <section @click="SetModalType" class="user-preview">
     <p>{{ getUser }}</p>
   </section>
 </template>
@@ -21,6 +21,7 @@ export default {
   },
   methods: {
     SetModalType() {
+      console.log('ok')
       itemService.setModalType('UserOptions')
     }
   },

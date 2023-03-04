@@ -12,6 +12,7 @@
 
  .view-btn {
   height: 100%;
+  transform: translateY(2px);
   margin-inline-start: 0.5em;
  }
  & > * :not(:last-child) {

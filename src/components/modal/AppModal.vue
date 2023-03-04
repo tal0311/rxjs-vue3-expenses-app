@@ -1,5 +1,5 @@
 <template>
-  <section v-clickOutside v-if="modalType" class="modal-container">
+  <section v-if="modalType" class="modal-container">
     <component :is="modalType"></component>
   </section>
 </template>
@@ -23,6 +23,7 @@ export default {
   },
   methods: {
     setModal(modalType) {
+      console.log(':', modalType)
       this.modalType = modalType
     }
   },

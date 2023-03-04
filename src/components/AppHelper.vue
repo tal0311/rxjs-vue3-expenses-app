@@ -34,11 +34,9 @@ export default {
       this.isNotified = true;
 
     },
-    deep: true
+    // deep: true
   }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

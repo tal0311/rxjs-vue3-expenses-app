@@ -1,5 +1,5 @@
 <template>
- <section class="user-settings grid">
+ <section v-clickOutside class="user-settings grid">
   <h1 class="modal-header flex" v-trans="'user-settings'">User Settings</h1>
   <!-- <div class="modal-img">
    <img src="src/assets/img/pngwing.com.png" alt="">
@@ -55,6 +55,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

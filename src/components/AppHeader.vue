@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { itemService } from '../services/item.service'
+// import { itemService } from '../services/item.service'
 import UserPreview from './UserPreview.vue'
 
 

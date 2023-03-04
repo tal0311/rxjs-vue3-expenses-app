@@ -105,6 +105,7 @@ function getArchivedAmount() {
 }
 
 function setModalType(type) {
+  console.log('type:', type)
   _modal$.next(type)
 }
 

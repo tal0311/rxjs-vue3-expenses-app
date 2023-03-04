@@ -1,4 +1,5 @@
 <template>
+  <!-- <div class="logo"></div> -->
   <section class="full">
     <AppHeader />
     <main class="main-container full">
@@ -6,7 +7,7 @@
     </main>
   </section>
   <AppHelper />
-  <AppModal v-if="modalCmpInfo" :cmp="modalCmpInfo" />
+  <AppModal :cmp="modalCmp" />
 </template>
 
 <script>
@@ -21,7 +22,7 @@ export default {
   },
   data() {
     return {
-      modalCmpInfo: null
+      modalCmp: null
     }
   },
   methods: {
